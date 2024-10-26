@@ -74,11 +74,3 @@ SELECT firstName, lastName, city, state FROM Person
 LEFT JOIN Address
 ON Person.personId=Address.personId;
 ```
-# Query 6
-[511. Game Play Analysis](https://leetcode.com/problems/game-play-analysis-i/description/)
-
-```sql
-select player_id, min(event_date) as first_login
-from Activity 
-group by player_id
-```
