@@ -45,7 +45,7 @@ FROM Visits
 WHERE visit_id NOT IN (SELECT DISTINCT visit_id FROM Transactions)
 GROUP BY customer_id;
 ```
-# Query 4
+# Query 4 *****
 [197. Rising Temperature](https://leetcode.com/problems/rising-temperature/description/?envType=study-plan-v2&envId=top-sql-50)<br>
 The problem Rising Temperature can be solved by using the keyword INNER JOIN along with the function ADDDATE.
 
@@ -65,4 +65,12 @@ from Weather)
  select id
  from cte 
  where temperature > previous and DATEDIFF(recordDate,previous_Date)=1
+```
+# Query 5
+[175. Combine Two Tables](https://leetcode.com/problems/combine-two-tables/description/)
+
+```sql
+SELECT firstName, lastName, city, state FROM Person
+LEFT JOIN Address
+ON Person.personId=Address.personId;
 ```
