@@ -45,3 +45,14 @@ FROM Visits
 WHERE visit_id NOT IN (SELECT DISTINCT visit_id FROM Transactions)
 GROUP BY customer_id;
 ```
+# Query 4
+[197. Rising Temperature](https://leetcode.com/problems/rising-temperature/description/?envType=study-plan-v2&envId=top-sql-50)<br>
+The problem Rising Temperature can be solved by using the keyword INNER JOIN along with the function ADDDATE.
+
+```sql
+SELECT w1.id AS Id
+FROM
+  weather AS w1
+  INNER JOIN weather AS w2 ON w1.recordDate = ADDDATE(w2.recordDate, 1)
+WHERE w1.temperature > w2.temperature;
+```
