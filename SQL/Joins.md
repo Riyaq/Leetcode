@@ -56,3 +56,13 @@ FROM
   INNER JOIN weather AS w2 ON w1.recordDate = ADDDATE(w2.recordDate, 1)
 WHERE w1.temperature > w2.temperature;
 ```
+```sql
+with cte as(
+select *,
+lag(temperature) over(order by recordDate) as 'previous',
+lag(recordDate) over(order by recordDate) as 'previous_Date'
+from Weather)
+ select id
+ from cte 
+ where temperature > previous and DATEDIFF(recordDate,previous_Date)=1
+```
